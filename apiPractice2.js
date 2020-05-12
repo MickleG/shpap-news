@@ -23,7 +23,7 @@ function collectSearch()
 	
 
 	searchQueryValue = document.getElementById("searchTerm").value;
-	fetch("http://newsapi.org/v2/everything?language=en&q="+searchQueryValue+"&from="+year+"-"+month+"-"+day+"&sortBy=publishedAt&apiKey="+apiKey)
+	fetch("https://newsapi.org/v2/everything?language=en&q="+searchQueryValue+"&from="+year+"-"+month+"-"+day+"&sortBy=publishedAt&apiKey="+apiKey)
 	.then(data => data.json())
 	.then(response => 
 {
