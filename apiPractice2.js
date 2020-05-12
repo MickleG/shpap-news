@@ -32,6 +32,7 @@ function collectSearch()
 	articles.forEach(article => 
 	{
 		let wrapper = document.getElementById("wrapper");
+		wrapper.innerHTML = "";
 		let title = document.createElement("h2");
 		title.innerHTML = article.title;
 		wrapper.appendChild(title);
