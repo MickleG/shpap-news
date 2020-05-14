@@ -92,19 +92,21 @@ input
 	font-weight:300;
 	position: center;
 	box-sizing: border-box;
-	width: 100%
 }
 
 .articleImage
 {
 	width: 100%;
 	position:relative;
+	align-content: center;
 	margin:2% 0 0 0;
 }
 
 .articleArea
 {
 	position:relative;
+	justify-content: center;
+	width:100%;
 	padding:3% 0;
 }
 
@@ -119,8 +121,8 @@ input
 	bottom: -0.5%;
 	background-color: #333333;
 	right:0;
-	width:100%;
 	content: "";
+	width:100%;
 	height:1px;
 	z-index: -1;
 }
