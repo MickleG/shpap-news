@@ -6,6 +6,7 @@ body
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
+	cursor:default;
 }
 
 nav
@@ -21,7 +22,7 @@ nav
 	padding:0 3% 0 0;
 	align-items: center;
 	box-sizing: border-box;
-	z-index:100;
+	z-index:10000;
 }
 
 input
@@ -81,9 +82,11 @@ input
 .articleTitle
 {
 	font-weight:400;
+	position:relative;
+	width:100%;
 	margin:0;
-	padding: 0 3%;
 }
+
 .articles
 {
 	font-family: 'Lato',sans-serif;
@@ -108,6 +111,13 @@ input
 	background-color: #FFF;
 	box-shadow: 0 -3px 5px rgba(0,0,0,0.075);
 }
+
+.articleArea:nth-child(even)
+{
+	background-color:#0079a3;
+	color:#fff;
+}
+
 .articleArea.article--fixed{
 	position: fixed;
 	left: 0;

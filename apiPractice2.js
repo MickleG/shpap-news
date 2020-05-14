@@ -56,11 +56,6 @@ function searchNews(topic)
 			wrapper.innerHTML = "";
 			articles.forEach((article,i) => 
 			{
-				if (article.length > 0) 
-				{
-  				article.first().css({ 'z-index' : zValue });
- 				}
- 				
 				let articleArea = document.createElement("article");
 				articleArea.classList.add("articleArea");
 
