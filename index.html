@@ -5,13 +5,19 @@
 		
 	</title>
 	<link rel="stylesheet" type="text/css" href="apiPractice2.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<h1>Your Number One News Source</h1>
-	<form id = "searchForm" class = "searchForm">
+	<nav class="nav">
 		<input type = "text" placeholder = "Search for Article Topics" id = "searchTerm">
-		<div id = "searchButton" class = "initialSearchButton">Search</div>
-	</form>
+		<div id = "homeButton" class = "navCategory">Home</div>
+		<div id = "politicsButton" class = "navCategory navSearchQuery">Politics</div>
+		<div id = "econButton" class = "navCategory navSearchQuery">Economy</div>
+		<div id = "worldButton" class = "navCategory navSearchQuery">World</div>
+	</nav>
+	<section class = "banner">
+		
+	</section>
 	<form id = "articleForm">
 		<div id = "wrapper" class = "articles"></div>
 	</form>
