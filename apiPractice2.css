@@ -86,11 +86,9 @@ input
 }
 .articles
 {
-	padding: 0 3%;
 	font-family: 'Lato',sans-serif;
 	color: #333333;
 	font-weight:300;
-	position: center;
 	box-sizing: border-box;
 }
 
@@ -105,11 +103,16 @@ input
 .articleArea
 {
 	position:relative;
-	justify-content: center;
-	width:100%;
-	padding:3% 0;
-}
 
+	padding:3%;
+	background-color: #FFF;
+	box-shadow: 0 -3px 5px rgba(0,0,0,0.075);
+}
+.articleArea.article--fixed{
+	position: fixed;
+	left: 0;
+
+}
 .articleContent
 {
 

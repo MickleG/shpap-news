@@ -54,8 +54,7 @@ function searchNews(topic)
 			console.log(response);
 			let wrapper = document.getElementById("wrapper");
 			wrapper.innerHTML = "";
-			let zValue = 0;
-			articles.forEach(article => 
+			articles.forEach((article,i) => 
 			{
 				if (article.length > 0) 
 				{
@@ -74,7 +73,6 @@ function searchNews(topic)
 				content.classList.add("articleContent");
 				content.innerHTML = article.content;
 				articleArea.appendChild(content);
-
 				if(article.urlToImage != null)
 				{
 				let image = document.createElement("img");
@@ -83,8 +81,43 @@ function searchNews(topic)
 				articleArea.appendChild(image);
 				}
 				wrapper.appendChild(articleArea);
-				zValue++;
+				articleArea.dataset.index=  i;
+				articleArea.style.zIndex = (i+1)*10;
 			})
 
 		})
 }
+function updateArticlePosition(){
+	console.log(window.pageYOffset);
+	const nav = document.getElementById("nav");
+	const navPos = nav.getBoundingClientRect();
+	const banner = document.getElementById("banner");
+	const bannerPos = banner.getBoundingClientRect();
+	const articles = [...document.getElementsByClassName("articleArea")];
+	articles.sort((a,b)=>a.dataset.index-b.dataset.index);
+	let aggregateTop = bannerPos.height;
+	// Assign top and height values
+	articles.forEach((article)=>{
+		let articlePos = article.getBoundingClientRect();
+		article.dataset.top = aggregateTop;
+		article.dataset.height = articlePos.height;
+		aggregateTop+=articlePos.height;
+	})
+	let firstNonCollapsedIndex = 0;
+	let lastArticleOffset = 0;
+	articles.forEach((article,i)=>{
+		if(article.dataset.top-navPos.height<window.pageYOffset){
+			lastArticleOffset += parseFloat(article.dataset.height);
+			article.classList.add("article--fixed");
+			article.style.top=navPos.bottom+"px";
+			firstNonCollapsedIndex = i+1;
+
+		}else{
+			article.classList.remove("article--fixed");
+			article.style.top=lastArticleOffset+"px";
+		}
+	})
+}
+window.addEventListener("scroll",updateArticlePosition);
+window.addEventListener("resize",updateArticlePosition);
+window.addEventListener("load",updateArticlePosition);
